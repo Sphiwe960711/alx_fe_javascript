@@ -248,4 +248,24 @@ function createAddQuoteForm() {
     // Add the form to the body or any other container
     document.body.appendChild(form);
   }
+
+  
+  function syncQuotesWithServer() {
+    // Simulating an API call or server interaction
+    fetch('/sync-quotes', {
+      method: 'POST',
+      body: JSON.stringify({ quotes: myQuotesArray }), // Assuming myQuotesArray is defined
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Once the quotes are successfully synced, log the message
+        console.log("Quotes synced with server!");
+      })
+      .catch(error => {
+        console.error("Error syncing quotes with server:", error);
+      });
+  }
   
